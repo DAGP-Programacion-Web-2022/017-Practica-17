@@ -1,16 +1,9 @@
-import mongoose from "mongoose";
-import config from "./config";
+const mongoose = require('mongoose');
 
-(async () => {
-  try {
-    const db = await mongoose.connect(config.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    });
-    console.log("Mongodb is connected to", db.connection.host);
-  } catch (error) {
-    console.error(error);
-  }
-})();
+mongoose.set('useFindAndModify', false);
+mongoose.connect('mongodb://localhost/node-notes-db', {
+  useCreateIndex: true,
+  useNewUrlParser: true
+})
+  .then(db => console.log('DB is connected'))
+  .catch(err => console.error(err));
