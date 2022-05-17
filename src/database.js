@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.set('useFindAndModify', false);
-mongoose.connect('mongodb://localhost/node-notes-db', {
+mongoose.connect('mongodb+srv://diego:awitadeJamaica@cluster0.l5hiy.mongodb.net/?retryWrites=true&w=majority', {
   useCreateIndex: true,
   useNewUrlParser: true
 })
